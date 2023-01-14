@@ -1,0 +1,10 @@
+languageCode = "en-us"
+title = "CryptoLearn"
+baseURL = "https://victim1307.github.io/cryptolearn"
+canonifyURLs = true
+theme = "cupper"
+publishDir = "docs"
+
+[params]
+  description = "Documentation for the **Cupper** documentation builder, built with **Cupper** itself."
+  codePenUser = "Heydon"
