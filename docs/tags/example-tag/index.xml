@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>example tag on CryptoLearn</title>
-    <link>https://cryptolearn.github.io/tags/example-tag/</link>
+    <link>https://victim1307.github.io/cryptolearn/tags/example-tag/</link>
     <description>Recent content in example tag on CryptoLearn</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://cryptolearn.github.io/tags/example-tag/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="https://victim1307.github.io/cryptolearn/tags/example-tag/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>My First Pattern File</title>
-      <link>https://cryptolearn.github.io/patterns/pattern/</link>
+      <link>https://victim1307.github.io/cryptolearn/patterns/pattern/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://cryptolearn.github.io/patterns/pattern/</guid>
+      <guid>https://victim1307.github.io/cryptolearn/patterns/pattern/</guid>
       <description>You can just write markdown here. But don&amp;rsquo;t forget there are lots of shortcodes to help you with writing and showing off code too. See the documentation for Cupper for full details.
 Here&amp;rsquo;s an example of a note shortcode for adding little &amp;ldquo;oh and also&amp;rdquo; notes to your patterns&amp;rsquo; documentation.</description>
     </item>
