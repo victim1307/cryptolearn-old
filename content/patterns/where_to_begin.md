@@ -1,3 +1,3 @@
 +++ 
-title = "Where to begin"" 
+title = "Where to begin"
 +++
