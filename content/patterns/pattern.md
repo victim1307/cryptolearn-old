@@ -1,6 +1,6 @@
-+++
-title = "Testing Page"
-tags = ["example tag", "another tag"]
++++ 
+title = "Testing Page" 
+tags = ["example tag", "another tag"] 
 +++
 
-it worked ;)
+it worked
