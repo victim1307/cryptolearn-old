@@ -6,5 +6,5 @@ theme = "cupper"
 publishDir = "docs"
 
 [params]
-  description = "Documentation for the **Cupper** documentation builder, built with **Cupper** itself."
+  description = "A place to learn about cryptography from 0"
   codePenUser = "Heydon"
