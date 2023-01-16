@@ -1,4 +1,3 @@
 +++
-title = "Classic Cryptography"
-weight = 2
+title = "3. Classic Cryptography"
 +++

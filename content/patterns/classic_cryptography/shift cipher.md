@@ -29,9 +29,9 @@ The shift value is also known as the key, and it determines the encryption and d
     - K = the shift value (the key)
     - mod 26 = the modulo operation that brings the result of the subtraction within the range of 0 to 25, corresponding to the 26 letters of the alphabet.
 
-#### Code
+### Code
 
-{{<code la>}}
+{{<code>}}
 
 def shift_cipher_encryption(plaintext, key):
     # create an empty list to store the ciphertext

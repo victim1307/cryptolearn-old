@@ -1,4 +1,3 @@
 +++
-title = "Basic Concepts"
-weight = 1
+title = "2. Basic Concepts"
 +++

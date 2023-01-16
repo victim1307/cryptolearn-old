@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Classic Cryptography on CryptoLearn</title>
+    <title>3. Classic Cryptography on CryptoLearn</title>
     <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/</link>
-    <description>Recent content in Classic Cryptography on CryptoLearn</description>
+    <description>Recent content in 3. Classic Cryptography on CryptoLearn</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language><atom:link href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -14,6 +14,36 @@
       <guid>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/shift-cipher/</guid>
       <description>A shift cipher, also known as a Caesar cipher, is a simple encryption technique that replaces each letter of a plaintext message with a letter a fixed number of positions down the alphabet. For example, if the shift value is 3, the letter &amp;lsquo;A&amp;rsquo; would be replaced by &amp;lsquo;D&amp;rsquo;, &amp;lsquo;B&amp;rsquo; would be replaced by &amp;lsquo;E&amp;rsquo;, and so on.
 The shift value is also known as the key, and it determines the encryption and decryption process.</description>
+    </item>
+    
+    <item>
+      <title>Affine Cipher</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/affine-ciphers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/affine-ciphers/</guid>
+      <description>An Affine cipher is a type of monoalphabetic substitution cipher, in which each letter in the plaintext is mapped to a unique fixed letter in the ciphertext. This mapping is based on a mathematical function, called the Affine function, that takes two inputs: the letter of the plaintext and two encryption keys, &amp;ldquo;a&amp;rdquo; and &amp;ldquo;b&amp;rdquo;.
+The encryption function is defined as: C = (a*P + b) mod 26 Where: C = the ciphertext letter (the encrypted letter) P = the plaintext letter (the original letter) a, b = the encryption keys mod 26 = the modulo operation that brings the result of the multiplication and addition within the range of 0 to 25, corresponding to the 26 letters of the alphabet.</description>
+    </item>
+    
+    <item>
+      <title>Atbash Cipher</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/atbast-cipher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/atbast-cipher/</guid>
+      <description>The Atbash Cipher is a simple form of monoalphabetic substitution cipher that uses the reverse of the alphabet as the key.
+To encrypt a message, the first step is to reverse the alphabet. This can be done by writing down the alphabet, A-Z or a-z, in the usual order and then writing it down again in reverse order. Then, for each letter in the plaintext message, the corresponding letter in the reversed alphabet is used to encrypt it.</description>
+    </item>
+    
+    <item>
+      <title>Playfair Cipher</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/playfair-cipher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/playfair-cipher/</guid>
+      <description>The Playfair Cipher is a polygraphic substitution cipher that encrypts pairs of letters instead of single letters. It uses a 5x5 grid of letters (called the key square or tableau) to encrypt pairs of letters.
+To encrypt a message, the first step is to create the key square. This is done by choosing a keyword and writing it in a 5x5 grid, filling the remaining spaces with the remaining letters of the alphabet in alphabetical order, omitting the letter &amp;lsquo;J&amp;rsquo;.</description>
     </item>
     
   </channel>

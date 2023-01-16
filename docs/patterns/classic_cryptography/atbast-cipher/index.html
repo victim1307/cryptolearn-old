@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/basics/test1/">
+    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/atbast-cipher/">
     <link rel="apple-touch-icon" sizes="57x57" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-72x72.png">
@@ -30,7 +30,7 @@
     </style>
     <title>
       
-        Where to ghfghfcbegin | CryptoLearn
+        Atbash Cipher | CryptoLearn
       
     </title>
     
@@ -220,7 +220,7 @@
                             </li>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/basics/test1/" aria-current="page">
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/basics/test1/" >
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -254,7 +254,7 @@
                             </li>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/atbast-cipher/" >
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/atbast-cipher/" aria-current="page">
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -302,7 +302,7 @@
       <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
         <use xlink:href="#bookmark"></use>
       </svg>
-      Where to ghfghfcbegin
+      Atbash Cipher
     </h1>
     
     
@@ -310,7 +310,58 @@
 
 
     
-    
+    <p>The Atbash Cipher is a simple form of monoalphabetic substitution cipher that uses the reverse of the alphabet as the key.</p>
+<p>To encrypt a message, the first step is to reverse the alphabet. This can be done by writing down the alphabet, A-Z or a-z, in the usual order and then writing it down again in reverse order. Then, for each letter in the plaintext message, the corresponding letter in the reversed alphabet is used to encrypt it.</p>
+<p>For example, to encrypt the letter “A”, the letter “Z” would be used. To encrypt the letter “B”, the letter “Y” would be used, and so on. The encryption process is done letter by letter in this way, and the resulting encrypted message is the ciphertext.</p>
+<p>The decryption process is similar, it&rsquo;s just the reverse of the encryption process, the decryption key is the original alphabet.</p>
+<p>Atbash Cipher is a very simple encryption method, it&rsquo;s easy to implement and understand, but it is easily broken by frequency analysis. It&rsquo;s not suitable for use in modern encryption scenarios.</p>
+<h4 id="the-atbash-cipher-encryption-process-is-as-follows">The Atbash Cipher encryption process is as follows:</h4>
+<ul>
+<li>The first step is to create a reversed alphabet, for example, if we are using the English alphabet, it would be “ZYXWVUTSRQPONMLKJIHGFEDCBA”</li>
+<li>The plaintext message is then converted letter by letter into the corresponding letter in the reversed alphabet.</li>
+<li>The resulting letters form the ciphertext message.</li>
+</ul>
+<p>For example, if the plaintext message is “HELLO” and the reversed alphabet is “ZYXWVUTSRQPONMLKJIHGFEDCBA”, the ciphertext message would be “SVOOL”.</p>
+<h4 id="the-atbash-cipher-decryption-process-is-as-follows">The Atbash Cipher decryption process is as follows:</h4>
+<ul>
+<li>The first step is to use the original alphabet.</li>
+<li>The ciphertext message is then converted letter by letter into the corresponding letter in the original alphabet.</li>
+<li>The resulting letters form the plaintext message.</li>
+</ul>
+<p>For example, if the ciphertext message is “SVOOL” and the original alphabet is “ABCDEFGHIJKLMNOPQRSTUVWXYZ”, the plaintext message would be “HELLO”.</p>
+<p>It&rsquo;s important to note that this method can be applied to different alphabets and languages, it&rsquo;s just reversing the order of the letters in the alphabet.</p>
+<h3 id="code">Code</h3>
+
+
+
+
+<div class="code-annotated "><code>
+def atbash_cipher_encryption(plaintext):
+    alphabet = &#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;
+    reversed_alphabet = alphabet[::-1]
+    ciphertext = []
+    for letter in plaintext:
+        if letter.isalpha():
+            index = alphabet.index(letter.upper())
+            ciphertext.append(reversed_alphabet[index])
+        else:
+            ciphertext.append(letter)
+    return &#39;&#39;.join(ciphertext)
+
+def atbash_cipher_decryption(ciphertext):
+    alphabet = &#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;
+    reversed_alphabet = alphabet[::-1]
+    plaintext = []
+    for letter in ciphertext:
+        if letter.isalpha():
+            index = reversed_alphabet.index(letter.upper())
+            plaintext.append(alphabet[index])
+        else:
+            plaintext.append(letter)
+    return &#39;&#39;.join(plaintext)
+</code></div>
+
+
   </main>
 
           <footer role="contentinfo">
