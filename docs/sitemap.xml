@@ -2,8 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://victim1307.github.io/cryptolearn/patterns/basics/test/</loc>
+  </url><url>
+    <loc>https://victim1307.github.io/cryptolearn/patterns/basics/test1/</loc>
+  </url><url>
     <loc>https://victim1307.github.io/cryptolearn/</loc>
     <lastmod>2023-01-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://victim1307.github.io/cryptolearn/patterns/where_to_begin/</loc>
+  </url><url>
+    <loc>https://victim1307.github.io/cryptolearn/patterns/basics/</loc>
+  </url><url>
+    <loc>https://victim1307.github.io/cryptolearn/patterns/rsa/</loc>
+  </url><url>
+    <loc>https://victim1307.github.io/cryptolearn/patterns/ecc/</loc>
   </url><url>
     <loc>https://victim1307.github.io/cryptolearn/tags/another-tag/</loc>
   </url><url>

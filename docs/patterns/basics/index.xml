@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2. Basic Concepts on CryptoLearn</title>
+    <link>https://victim1307.github.io/cryptolearn/patterns/basics/</link>
+    <description>Recent content in 2. Basic Concepts on CryptoLearn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://victim1307.github.io/cryptolearn/patterns/basics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hello world</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/basics/test/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/basics/test/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Where to begin</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/basics/test1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/basics/test1/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
