@@ -295,8 +295,13 @@
     <p>A shift cipher, also known as a Caesar cipher, is a simple encryption technique that replaces each letter of a plaintext message with a letter a fixed number of positions down the alphabet. For example, if the shift value is 3, the letter &lsquo;A&rsquo; would be replaced by &lsquo;D&rsquo;, &lsquo;B&rsquo; would be replaced by &lsquo;E&rsquo;, and so on.</p>
 <p>The shift value is also known as the key, and it determines the encryption and decryption process. The same key is used for both encryption and decryption. The encryption process is simply a shift to the right, and the decryption process is a shift to the left, using the same key value.</p>
 <h4 id="the-formula-for-a-shift-cipher-encryption-is-as-follows">The formula for a shift cipher encryption is as follows:</h4>
-<pre><code>                        C ≡ (P + K) mod 26
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>C ≡ (P + K) mod 26</th>
+</tr>
+</thead>
+</table>
 <ul>
 <li>where:
 <ul>
@@ -308,8 +313,13 @@
 </li>
 </ul>
 <h4 id="the-formula-for-a-shift-cipher-decryption-is-as-follows">The formula for a shift cipher decryption is as follows:</h4>
-<pre><code>                        P ≡ (C - K + 26) mod 26
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>P ≡ (C - K + 26) mod 26</th>
+</tr>
+</thead>
+</table>
 <ul>
 <li>where:
 <ul>
@@ -320,6 +330,48 @@
 </ul>
 </li>
 </ul>
+<h4 id="code">Code</h4>
+
+
+
+
+<div class="code-annotated "><code>
+
+def shift_cipher_encryption(plaintext, key):
+    # create an empty list to store the ciphertext
+    ciphertext = []
+    for letter in plaintext:
+        # only encrypt letters, not spaces or other characters
+        if letter.isalpha():
+            # shift the letter by the key value
+            shifted_letter = chr((ord(letter) - ord(&#39;A&#39;) + key) % 26 + ord(&#39;A&#39;))
+            ciphertext.append(shifted_letter)
+        else:
+            ciphertext.append(letter)
+    return &#39;&#39;.join(ciphertext)
+
+def shift_cipher_decryption(ciphertext, key):
+    # create an empty list to store the plaintext
+    plaintext = []
+    for letter in ciphertext:
+        # only decrypt letters, not spaces or other characters
+        if letter.isalpha():
+            # shift the letter by the negative of the key value
+            shifted_letter = chr((ord(letter) - ord(&#39;A&#39;) - key + 26) % 26 + ord(&#39;A&#39;))
+            plaintext.append(shifted_letter)
+        else:
+            plaintext.append(letter)
+    return &#39;&#39;.join(plaintext)
+
+# example usage
+plaintext = &#34;HELLO WORLD&#34;
+key = 3
+ciphertext = shift_cipher_encryption(plaintext, key)
+print(&#34;Ciphertext:&#34;, ciphertext)
+decrypted_text = shift_cipher_decryption(ciphertext, key)
+print(&#34;Decrypted text:&#34;, decrypted_text)
+</code></div>
+
 
   </main>
 
