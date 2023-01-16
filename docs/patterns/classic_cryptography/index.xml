@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Classic Cryptography on CryptoLearn</title>
+    <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/</link>
+    <description>Recent content in Classic Cryptography on CryptoLearn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shift Cipher</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/shift-cipher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/shift-cipher/</guid>
+      <description>A shift cipher, also known as a Caesar cipher, is a simple encryption technique that replaces each letter of a plaintext message with a letter a fixed number of positions down the alphabet. For example, if the shift value is 3, the letter &amp;lsquo;A&amp;rsquo; would be replaced by &amp;lsquo;D&amp;rsquo;, &amp;lsquo;B&amp;rsquo; would be replaced by &amp;lsquo;E&amp;rsquo;, and so on.
+The shift value is also known as the key, and it determines the encryption and decryption process.</description>
+    </item>
+    
+  </channel>
+</rss>
