@@ -17,6 +17,17 @@
     </item>
     
     <item>
+      <title>Introduction</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/introduction/</guid>
+      <description>Stream ciphers and block ciphers are two common types of symmetric encryption algorithms.
+A stream cipher encrypts plaintext one bit or byte at a time, while a block cipher encrypts plaintext in fixed-size blocks, typically 128 or 256 bits at a time.
+Stream ciphers are used in real-time applications where data is transmitted continuously, such as in wireless communications or streaming audio and video. They are efficient in terms of computation and memory usage and can encrypt data quickly and securely.</description>
+    </item>
+    
+    <item>
       <title>Shift Cipher</title>
       <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/shift-cipher/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
