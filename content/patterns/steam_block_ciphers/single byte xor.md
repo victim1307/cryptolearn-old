@@ -1,5 +1,6 @@
 +++
 title = "Single Byte XOR"
+weight = 2
 +++
 Single-Byte XOR, also known as Single Character XOR, is a simple form of XOR encryption that encrypts each byte of the plaintext message using a single byte key. The encryption process is done by applying the XOR operation between the plaintext byte and the key byte.
 
