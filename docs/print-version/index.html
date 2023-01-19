@@ -297,6 +297,15 @@
                     </a>
                   </li>
                 
+                  <li class="pattern">
+                    <a href="#single-byte-xor" >
+                      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                        <use xlink:href="#bookmark"></use>
+                      </svg>
+                      <span class="text">Single Byte XOR</span>
+                    </a>
+                  </li>
+                
               </ul>
             </li>
           
@@ -869,6 +878,32 @@ if __name__ == &#39;__main__&#39;:
 <p>Block ciphers, on the other hand, are used to encrypt large amounts of data, such as files or entire disk drives. They are more secure than stream ciphers but require more computation and memory resources. Examples of block ciphers include AES and DES.</p>
 <p>In both cases, the encryption process is performed using a secret key, and the decryption process is performed using the same key. This ensures that only authorized parties can access the encrypted data.</p>
 <p>It&rsquo;s worth noting that both block ciphers and stream ciphers can be used in various modes of operation, like Electronic Codebook (ECB), Cipher Block Chaining (CBC), Cipher Feedback (CFB), Output Feedback (OFB) and Counter (CTR) mode, each one of them has its own security and practical properties.</p>
+
+          </div>
+        
+          <div class="pattern-section">
+            <h1 id="single-byte-xor" tabindex="-1">
+              <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                <use xlink:href="#bookmark"></use>
+              </svg>
+              Single Byte XOR
+            </h1>
+            <p>Single-Byte XOR, also known as Single Character XOR, is a simple form of XOR encryption that encrypts each byte of the plaintext message using a single byte key. The encryption process is done by applying the XOR operation between the plaintext byte and the key byte.</p>
+<p>The decryption process is the same as the encryption process, it&rsquo;s just the reverse of the encryption process, the decryption key is the same key used for encryption.</p>
+<p>Here&rsquo;s an example of how you might implement Single-Byte XOR encryption and decryption in Sage:
+{{code}}
+def single_byte_xor_encryption(plaintext, key):
+ciphertext = &quot;&quot;
+for i in range(len(plaintext)):
+ciphertext += chr(ord(plaintext[i]) ^ ord(key[i % len(key)]))
+return ciphertext</p>
+<p>def single_byte_xor_decryption(ciphertext, key):
+plaintext = &quot;&quot;
+for i in range(len(ciphertext)):
+plaintext += chr(ord(ciphertext[i]) ^ ord(key[i % len(key)]))
+return plaintext
+{{/code}}</p>
+<p>It&rsquo;s important to note that Single-Byte XOR is not considered a secure encryption method and should not be used in real-world scenarios, it can be easily broken by frequency analysis, and other methods.</p>
 
           </div>
         

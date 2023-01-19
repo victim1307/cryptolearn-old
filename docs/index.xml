@@ -94,5 +94,15 @@ To encrypt a message, the first step is to create the key square. This is done b
       <description>You don&amp;rsquo;t want to edit this file :-)</description>
     </item>
     
+    <item>
+      <title>Single Byte XOR</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/single-byte-xor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/single-byte-xor/</guid>
+      <description>Single-Byte XOR, also known as Single Character XOR, is a simple form of XOR encryption that encrypts each byte of the plaintext message using a single byte key. The encryption process is done by applying the XOR operation between the plaintext byte and the key byte.
+The decryption process is the same as the encryption process, it&amp;rsquo;s just the reverse of the encryption process, the decryption key is the same key used for encryption.</description>
+    </item>
+    
   </channel>
 </rss>
