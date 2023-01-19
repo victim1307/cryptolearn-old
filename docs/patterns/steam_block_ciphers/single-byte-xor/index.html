@@ -346,19 +346,25 @@
     
     <p>Single-Byte XOR, also known as Single Character XOR, is a simple form of XOR encryption that encrypts each byte of the plaintext message using a single byte key. The encryption process is done by applying the XOR operation between the plaintext byte and the key byte.</p>
 <p>The decryption process is the same as the encryption process, it&rsquo;s just the reverse of the encryption process, the decryption key is the same key used for encryption.</p>
-<p>Here&rsquo;s an example of how you might implement Single-Byte XOR encryption and decryption in Sage:
-{{code}}
+<p>Here&rsquo;s an example of how you might implement Single-Byte XOR encryption and decryption in Sage:</p>
+
+
+
+
+<div class="code-annotated "><code>
 def single_byte_xor_encryption(plaintext, key):
-ciphertext = &quot;&quot;
-for i in range(len(plaintext)):
-ciphertext += chr(ord(plaintext[i]) ^ ord(key[i % len(key)]))
-return ciphertext</p>
-<p>def single_byte_xor_decryption(ciphertext, key):
-plaintext = &quot;&quot;
-for i in range(len(ciphertext)):
-plaintext += chr(ord(ciphertext[i]) ^ ord(key[i % len(key)]))
-return plaintext
-{{/code}}</p>
+    ciphertext = &#34;&#34;
+    for i in range(len(plaintext)):
+        ciphertext += chr(ord(plaintext[i]) ^ ord(key[i % len(key)]))
+    return ciphertext
+
+def single_byte_xor_decryption(ciphertext, key):
+    plaintext = &#34;&#34;
+    for i in range(len(ciphertext)):
+        plaintext += chr(ord(ciphertext[i]) ^ ord(key[i % len(key)]))
+    return plaintext
+</code></div>
+
 <p>It&rsquo;s important to note that Single-Byte XOR is not considered a secure encryption method and should not be used in real-world scenarios, it can be easily broken by frequency analysis, and other methods.</p>
 
   </main>
