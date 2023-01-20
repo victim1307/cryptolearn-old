@@ -77,6 +77,15 @@ To encrypt a message, the first step is to reverse the alphabet. This can be don
     </item>
     
     <item>
+      <title>Repeated Key XOR</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/repeated-key-xor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/repeated-key-xor/</guid>
+      <description>Repeated Key XOR is a type of encryption that uses the XOR operation to encrypt plaintext by repeatedly applying a secret key to it. In this method, the key is repeated as many times as necessary to match the length of the plaintext. The encryption process works by taking each plaintext byte and the corresponding byte of the key, and applying the XOR operation between them. The result is the ciphertext.</description>
+    </item>
+    
+    <item>
       <title>Playfair Cipher</title>
       <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/playfair-cipher/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

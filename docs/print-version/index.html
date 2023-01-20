@@ -306,6 +306,15 @@
                     </a>
                   </li>
                 
+                  <li class="pattern">
+                    <a href="#repeated-key-xor" >
+                      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                        <use xlink:href="#bookmark"></use>
+                      </svg>
+                      <span class="text">Repeated Key XOR</span>
+                    </a>
+                  </li>
+                
               </ul>
             </li>
           
@@ -910,6 +919,36 @@ def single_byte_xor_decryption(ciphertext, key):
 </code></div>
 
 <p>It&rsquo;s important to note that Single-Byte XOR is not considered a secure encryption method and should not be used in real-world scenarios, it can be easily broken by frequency analysis, and other methods.</p>
+
+          </div>
+        
+          <div class="pattern-section">
+            <h1 id="repeated-key-xor" tabindex="-1">
+              <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                <use xlink:href="#bookmark"></use>
+              </svg>
+              Repeated Key XOR
+            </h1>
+            <p>Repeated Key XOR is a type of encryption that uses the XOR operation to encrypt plaintext by repeatedly applying a secret key to it. In this method, the key is repeated as many times as necessary to match the length of the plaintext. The encryption process works by taking each plaintext byte and the corresponding byte of the key, and applying the XOR operation between them. The result is the ciphertext.</p>
+<p>Decryption is the inverse process of encryption, it takes the ciphertext and the same key used for encryption and applies the XOR operation between them, which results in the original plaintext.</p>
+
+
+
+
+<div class="code-annotated "><code>
+def repeated_key_xor_encryption(plaintext:str, key:str):
+    ciphertext = &#34;&#34;
+    for i in range(len(plaintext)):
+        ciphertext += chr(ord(plaintext[i]) ^ ord(key[i % len(key)]))
+    return ciphertext
+
+def repeated_key_xor_decryption(ciphertext:str, key:str):
+    plaintext = &#34;&#34;
+    for i in range(len(ciphertext)):
+        plaintext += chr(ord(ciphertext[i]) ^ ord(key[i % len(key)]))
+    return plaintext
+</code></div>
+
 
           </div>
         
