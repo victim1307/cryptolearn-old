@@ -315,6 +315,15 @@
                     </a>
                   </li>
                 
+                  <li class="pattern">
+                    <a href="#transposition-ciphers" >
+                      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                        <use xlink:href="#bookmark"></use>
+                      </svg>
+                      <span class="text">Transposition ciphers</span>
+                    </a>
+                  </li>
+                
               </ul>
             </li>
           
@@ -947,6 +956,49 @@ def repeated_key_xor_decryption(ciphertext:str, key:str):
     for i in range(len(ciphertext)):
         plaintext += chr(ord(ciphertext[i]) ^ ord(key[i % len(key)]))
     return plaintext
+</code></div>
+
+
+          </div>
+        
+          <div class="pattern-section">
+            <h1 id="transposition-ciphers" tabindex="-1">
+              <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                <use xlink:href="#bookmark"></use>
+              </svg>
+              Transposition ciphers
+            </h1>
+            <p>Transposition ciphers are a type of encryption technique that rearrange the positions of the letters in the plaintext to produce the ciphertext. The plaintext is rearranged according to a specific rule or method, such as a regular pattern or a secret key. The process of encryption is reversible, meaning that the original plaintext can be obtained by rearranging the ciphertext using the same rule or method.</p>
+<p>There are several types of transposition ciphers, such as:</p>
+<p>Columnar Transposition: This cipher rearranges the letters of the plaintext by writing them in a grid and then reading the columns in a specific order.</p>
+<p>Rail Fence: This cipher rearranges the letters of the plaintext by writing them in a zigzag pattern along a set number of &ldquo;rails&rdquo; and then reading the letters off in a specific order.</p>
+<p>Route Cipher: This cipher rearranges the letters of the plaintext by writing them in a grid and then reading the letters off in a specific route, such as a snake-like pattern.</p>
+<p>Book Cipher: This cipher rearranges the letters of the plaintext by assigning each letter a number and then using a book or other prearranged text to look up the corresponding ciphertext letter.</p>
+<p>It&rsquo;s important to note that transposition ciphers are not considered very secure encryption method and can be easily broken by frequency analysis and other methods. They are mainly used to provide an additional layer of security on top of another encryption method.</p>
+
+
+
+
+<div class="code-annotated "><code>
+
+def columnar_transposition_encryption(plaintext:str, key:str):
+    ciphertext = &#34;&#34;
+    grid = []
+    for i in range(len(plaintext)):
+        grid.append(plaintext[i])
+    for i in range(len(key)):
+        ciphertext += grid[i::len(key)]
+    return ciphertext
+
+def columnar_transposition_decryption(ciphertext:str, key:str):
+    plaintext = &#34;&#34;
+    grid = []
+    for i in range(len(ciphertext)):
+        grid.append(ciphertext[i])
+    for i in range(len(key)):
+        plaintext += grid[i::len(key)]
+    return plaintext
+
 </code></div>
 
 

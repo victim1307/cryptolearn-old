@@ -96,6 +96,16 @@ To encrypt a message, the first step is to create the key square. This is done b
     </item>
     
     <item>
+      <title>Transposition ciphers</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/transposition-cipher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/transposition-cipher/</guid>
+      <description>Transposition ciphers are a type of encryption technique that rearrange the positions of the letters in the plaintext to produce the ciphertext. The plaintext is rearranged according to a specific rule or method, such as a regular pattern or a secret key. The process of encryption is reversible, meaning that the original plaintext can be obtained by rearranging the ciphertext using the same rule or method.
+There are several types of transposition ciphers, such as:</description>
+    </item>
+    
+    <item>
       <title>1. Where to begin</title>
       <link>https://victim1307.github.io/cryptolearn/patterns/where_to_begin/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
