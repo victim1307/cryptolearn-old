@@ -46,5 +46,15 @@ The decryption process is the same as the encryption process, it&amp;rsquo;s jus
 There are several types of transposition ciphers, such as:</description>
     </item>
     
+    <item>
+      <title>Modes of block cipher</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/modes-of-block-cipher/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/modes-of-block-cipher/</guid>
+      <description>A block cipher is a type of symmetric key encryption that encrypts data in fixed-size blocks (typically 64 or 128 bits). There are several different modes of encryption that can be used with a block cipher to encrypt data of any size:
+Electronic Code Book (ECB) mode: This is the simplest and most basic mode of encryption. Each block of plaintext is independently encrypted with the same key, resulting in a block of ciphertext of the same size.</description>
+    </item>
+    
   </channel>
 </rss>

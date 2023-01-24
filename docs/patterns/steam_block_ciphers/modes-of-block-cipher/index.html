@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/playfair-cipher/">
+    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/modes-of-block-cipher/">
     <link rel="apple-touch-icon" sizes="57x57" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-72x72.png">
@@ -30,7 +30,7 @@
     </style>
     <title>
       
-        Playfair Cipher | CryptoLearn
+        Modes of block cipher | CryptoLearn
       
     </title>
     
@@ -272,7 +272,7 @@
                             </li>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/playfair-cipher/" aria-current="page">
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/playfair-cipher/" >
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -324,7 +324,7 @@
                             </li>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/modes-of-block-cipher/" >
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/modes-of-block-cipher/" aria-current="page">
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -363,7 +363,7 @@
       <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
         <use xlink:href="#bookmark"></use>
       </svg>
-      Playfair Cipher
+      Modes of block cipher
     </h1>
     
     
@@ -371,201 +371,12 @@
 
 
     
-    <p>The Playfair Cipher is a polygraphic substitution cipher that encrypts pairs of letters instead of single letters. It uses a 5x5 grid of letters (called the key square or tableau) to encrypt pairs of letters.</p>
-<p>To encrypt a message, the first step is to create the key square. This is done by choosing a keyword and writing it in a 5x5 grid, filling the remaining spaces with the remaining letters of the alphabet in alphabetical order, omitting the letter &lsquo;J&rsquo;.</p>
-<p>For example, using the keyword &ldquo;PLAYFAIR&rdquo;, the grid would be:
-
-
-
-
-<div class="code-annotated "><code>
-P L A Y F
-I R B C D
-E G H K M
-N O Q S T
-U V W X Z
-</code></div>
-
-Then the plaintext message is divided into pairs of letters, if the message has an odd length, the last letter is padded with an &ldquo;X&rdquo; or any other letter.</p>
-<h4 id="the-encryption-process-is-done-by-following-these-steps">The encryption process is done by following these steps:</h4>
-<ul>
-<li>If both letters of the pair are the same, an &ldquo;X&rdquo; or any other letter is added to the second letter to make them different.</li>
-<li>If the letters are in the same row of the key square, the letters to the right of each one are used (wrapping around to the left side of the row if necessary)</li>
-<li>If the letters are in the same column of the key square, the letters below each one are used (wrapping around to the top of the column if necessary)</li>
-<li>If the letters are in different rows and columns, the letters at the intersections of the same row and column as each letter are used.
-For example, using the key square above and the plaintext &ldquo;HELLO&rdquo;, the ciphertext would be &ldquo;CENNR&rdquo;.</li>
-</ul>
-<p>The Playfair Cipher decryption process is similar to the encryption process, but the opposite operations are applied.</p>
-<p>To decrypt a message that was encrypted using the Playfair Cipher, the first step is to create the key square using the same keyword that was used to encrypt the message.</p>
-<p>Then, the ciphertext message is divided into pairs of letters, just as it was done during the encryption process.</p>
-<h4 id="the-decryption-process-is-done-by-following-these-steps">The decryption process is done by following these steps:</h4>
-<ul>
-<li>If the letters are in the same row of the key square, the letters to the left of each one are used (wrapping around to the right side of the row if necessary)</li>
-<li>If the letters are in the same column of the key square, the letters above each one are used (wrapping around to the bottom of the column if necessary)</li>
-<li>If the letters are in different rows and columns, the letters at the intersections of the same row and column as each letter are used.
-For example, using the key square created with the keyword &ldquo;PLAYFAIR&rdquo; and the ciphertext &ldquo;CENNR&rdquo;, the plaintext would be &ldquo;HELLO&rdquo;.</li>
-</ul>
-<p>It&rsquo;s important to note that this decryption process assumes that the key square was created using the same keyword as the one used to encrypt the message and that the plaintext message was padded with &ldquo;X&rdquo; or any other letter if necessary.</p>
-<h3 id="code">Code</h3>
-
-
-
-
-<div class="code-annotated "><code>
-import re
-
-
-def textCleaning(text):
-    text = text.upper()
-    text = re.sub(r&#39;\s*\d+\s*&#39;, &#39;&#39;, text)
-    text = re.sub(r&#39;[^\w\s]&#39;, &#39;&#39;, text)
-    text = text.replace(&#39; &#39;, &#39;&#39;)
-    return text
-
-
-def postProcess(text):
-    text = [text[i:i+5] for i in range(0, len(text), 5)]
-    text = &#39; &#39;.join(text)
-
-    return text
-
-
-def matrix(x, y, initial):
-    return [[initial for i in range(x)] for j in range(y)]
-
-
-def locateIndex(c, playFairMatrix):  # get location of each character
-    loc = list()
-    if c == &#39;J&#39;:
-        c = &#39;I&#39;
-    for i, j in enumerate(playFairMatrix):
-        for k, l in enumerate(j):
-            if c == l:
-                loc.append(i)
-                loc.append(k)
-                return loc
-
-
-def encrypt(text, playFairMatrix):
-    text = textCleaning(text)
-    cipher = &#39;&#39;
-    i = 0
-    for s in range(0, len(text)+1, 2):
-        if s &lt; len(text)-1:
-            if text[s] == text[s+1]:
-                text = text[:s+1]+&#39;X&#39;+text[s+1:]
-
-    if len(text) % 2 != 0:
-        text = text[:]+&#39;X&#39;
-
-    # print(&#34;CIPHER TEXT:&#34;, end=&#39;&#39;)
-
-    while i &lt; len(text):
-        loc = list()
-        loc = locateIndex(text[i], playFairMatrix)
-        loc1 = list()
-        loc1 = locateIndex(text[i+1], playFairMatrix)
-        if loc[1] == loc1[1]:
-            cipher += playFairMatrix[(loc[0]+1)%5][loc[1]] + playFairMatrix[(loc1[0]+1)%5][loc1[1]]
-            # print(&#34;{}{}&#34;.format(playFairMatrix[(loc[0]+1)%5][loc[1]],playFairMatrix[(loc1[0]+1)%5][loc1[1]]),end=&#39; &#39;)
-        elif loc[0] == loc1[0]:
-            cipher += playFairMatrix[loc[0]][(loc[1]+1) % 5] + playFairMatrix[loc1[0]][(loc1[1]+1) % 5]
-            # print(&#34;{}{}&#34;.format(playFairMatrix[loc[0]][(loc[1]+1)%5],playFairMatrix[loc1[0]][(loc1[1]+1)%5]),end=&#39; &#39;)
-        else:
-            cipher += playFairMatrix[loc[0]][loc1[1]] + playFairMatrix[loc1[0]][loc[1]]
-            # print(&#34;{}{}&#34;.format(playFairMatrix[loc[0]][loc1[1]],playFairMatrix[loc1[0]][loc[1]]),end=&#39; &#39;)
-        i = i+2
-
-    cipher = postProcess(cipher)
-
-    return cipher
-
-
-def decrypt(cipher, playFairMatrix):  # decryption
-    cipher = textCleaning(cipher)
-    plainText = &#39;&#39;
-    # print(&#34;PLAIN TEXT:&#34;, end=&#39; &#39;)
-    i = 0
-    while i &lt; len(cipher):
-        loc = list()
-        loc = locateIndex(cipher[i], playFairMatrix)
-        loc1 = list()
-        loc1 = locateIndex(cipher[i+1], playFairMatrix)
-        if loc[1] == loc1[1]:
-            plainText += playFairMatrix[(loc[0]-1) % 5][loc[1]] + \
-                playFairMatrix[(loc1[0]-1) % 5][loc1[1]]
-            # print(&#34;{}{}&#34;.format(playFairMatrix[(loc[0]-1)%5][loc[1]],playFairMatrix[(loc1[0]-1)%5][loc1[1]]),end=&#39; &#39;)
-        elif loc[0] == loc1[0]:
-            plainText += playFairMatrix[loc[0]][(loc[1]-1) %
-                                                5] + playFairMatrix[loc1[0]][(loc1[1]-1) % 5]
-            # print(&#34;{}{}&#34;.format(playFairMatrix[loc[0]][(loc[1]-1)%5],playFairMatrix[loc1[0]][(loc1[1]-1)%5]),end=&#39; &#39;)
-        else:
-            plainText += playFairMatrix[loc[0]][loc1[1]
-                                                ] + playFairMatrix[loc1[0]][loc[1]]
-            # print(&#34;{}{}&#34;.format(playFairMatrix[loc[0]][loc1[1]],playFairMatrix[loc1[0]][loc[1]]),end=&#39; &#39;)
-        i = i+2
-
-    plainText = postProcess(plainText)
-
-    return plainText
-
-
-def generatePlayfairSquare(key):
-    key = key.upper()
-    result = list()
-
-    for c in key:  # storing key
-        if c not in result:
-            if c == &#39;J&#39;:  # replacing j with i
-                result.append(&#39;I&#39;)
-            else:
-                result.append(c)
-
-    flag = 0
-
-    for i in range(65, 91):  # storing other character
-        if chr(i) not in result:
-            if i == 73 and chr(74) not in result:
-                result.append(&#34;I&#34;)
-                flag = 1
-            elif flag == 0 and i == 73 or i == 74:
-                pass
-            else:
-                result.append(chr(i))
-    k = 0
-    my_matrix = matrix(5, 5, 0)  # initialize matrix
-    for i in range(0, 5):  # making matrix
-        for j in range(0, 5):
-            my_matrix[i][j] = result[k]
-            k += 1
-
-    return my_matrix
-
-def main():
-    while(1):
-        choice=int(input(&#34;\n 1.Encryption \n 2.Decryption: \n 3.EXIT \n&#34;))
-        key=input(&#34;Enter key : &#34;)
-        key = textCleaning(key)
-
-        PS = generatePlayfairSquare(key)
-        if choice==1:
-            plainText = input(&#34;Enter Plaintext : &#34;)
-            plainText = textCleaning(plainText)
-            print(encrypt(plainText, PS))
-        elif choice==2:
-            cipher = input(&#39;Enter cipher : &#39;)
-            cipher = textCleaning(cipher)
-            print(decrypt(cipher,PS))
-        elif choice==3:
-            exit()
-        else:
-            print(&#34;Choose correct choice&#34;)
-    return 0
-
-if __name__ == &#39;__main__&#39;:
-    main()
-</code></div>
-
+    <p>A block cipher is a type of symmetric key encryption that encrypts data in fixed-size blocks (typically 64 or 128 bits). There are several different modes of encryption that can be used with a block cipher to encrypt data of any size:</p>
+<p>Electronic Code Book (ECB) mode: This is the simplest and most basic mode of encryption. Each block of plaintext is independently encrypted with the same key, resulting in a block of ciphertext of the same size. However, ECB mode is vulnerable to certain types of attacks, such as a known-plaintext attack, where an attacker can determine the key by analyzing a large number of ciphertext blocks.</p>
+<p>Cipher Block Chaining (CBC) mode: In this mode, a unique initialization vector (IV) is used to encrypt the first block of plaintext. For subsequent blocks of plaintext, the previous block of ciphertext is XORed with the current block of plaintext before encryption. This creates a chain of ciphertext blocks that are dependent on each other, making it more secure than ECB mode.</p>
+<p>Cipher Feedback (CFB) mode: This mode is similar to CBC mode, but instead of using the previous block of ciphertext, a block of ciphertext is used to encrypt the next block of plaintext. This creates a similar chain of ciphertext blocks that are dependent on each other, making it more secure than ECB mode.</p>
+<p>Output Feedback (OFB) mode: In this mode, a block of ciphertext is used to encrypt the next block of plaintext, but unlike CFB mode, the ciphertext is not fed back into the encryption process. This creates a similar chain of ciphertext blocks that are dependent on each other, making it more secure than ECB mode.</p>
+<p>Counter (CTR) mode: This mode uses a counter to encrypt the plaintext. The counter is combined with the key to encrypt each block of plaintext. This mode is similar to OFB mode but the encryption process is slightly more complex. It&rsquo;s considered to be more secure than ECB and other feedback modes.</p>
 
   </main>
 
