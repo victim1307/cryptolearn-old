@@ -340,6 +340,15 @@
               <h3>5. RSA</h3>
               <ul>
                 
+                  <li class="pattern">
+                    <a href="#introduction" >
+                      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                        <use xlink:href="#bookmark"></use>
+                      </svg>
+                      <span class="text">Introduction</span>
+                    </a>
+                  </li>
+                
               </ul>
             </li>
           
@@ -1030,6 +1039,65 @@ def columnar_transposition_decryption(ciphertext:str, key:str):
           </div>
         
       
+        
+          <div class="pattern-section">
+            <h1 id="introduction" tabindex="-1">
+              <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                <use xlink:href="#bookmark"></use>
+              </svg>
+              Introduction
+            </h1>
+            <p>RSA is a widely-used public-key encryption system that is based on the mathematical properties of large prime numbers. It was one of the first practical public-key cryptosystems and is widely used for secure data transmission.</p>
+<p>The RSA encryption process consists of two parts: key generation and encryption/decryption.</p>
+<p>Key Generation:</p>
+<ul>
+<li>Select two large prime numbers, p and q.</li>
+<li>Compute n = p*q. n is used as the modulus for both the public and private keys.</li>
+<li>Compute the totient of n, φ(n) = (p-1)*(q-1).</li>
+<li>Select a public exponent e, such that 1 &lt; e &lt; φ(n) and e is coprime to φ(n).</li>
+<li>Compute the private exponent d, such that d*e = 1 mod φ(n).</li>
+</ul>
+<p>Encryption/Decryption:</p>
+<ul>
+<li>For encryption, the plaintext message is represented as a number m. The ciphertext c is computed as c = m^e mod n.</li>
+<li>For decryption, the ciphertext c is input and the plaintext message m is computed as m = c^d mod n.</li>
+</ul>
+
+
+
+
+<div class="code-annotated "><code>
+from math import gcd
+from random import randrange
+
+def generate_keypair(p, q):
+    if not (is_prime(p) and is_prime(q)):
+        raise ValueError(&#39;Both numbers must be prime.&#39;)
+    elif p == q:
+        raise ValueError(&#39;p and q cannot be equal&#39;)
+    n = p * q
+    phi = (p-1) * (q-1)
+    e = randrange(1, phi)
+    g = gcd(e, phi)
+    while g != 1:
+        e = randrange(1, phi)
+        g = gcd(e, phi)
+    d = multiplicative_inverse(e, phi)
+    return ((e, n), (d, n))
+
+def encrypt(pk, plaintext):
+    key, n = pk
+    cipher = [(ord(char) ** key) % n for char in plaintext]
+    return cipher
+
+def decrypt(pk, ciphertext):
+    key, n = pk
+    plain = [chr((char ** key) % n) for char in ciphertext]
+    return &#39;&#39;.join(plain)
+</code></div>
+
+
+          </div>
         
       
         

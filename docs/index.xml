@@ -18,6 +18,18 @@
     
     <item>
       <title>Introduction</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/rsa/introduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/rsa/introduction/</guid>
+      <description>RSA is a widely-used public-key encryption system that is based on the mathematical properties of large prime numbers. It was one of the first practical public-key cryptosystems and is widely used for secure data transmission.
+The RSA encryption process consists of two parts: key generation and encryption/decryption.
+Key Generation:
+Select two large prime numbers, p and q. Compute n = p*q. n is used as the modulus for both the public and private keys.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
       <link>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
