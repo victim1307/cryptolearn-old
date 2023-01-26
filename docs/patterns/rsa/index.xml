@@ -18,5 +18,15 @@ Key Generation:
 Select two large prime numbers, p and q. Compute n = p*q. n is used as the modulus for both the public and private keys.</description>
     </item>
     
+    <item>
+      <title>Common Modulus Attack</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/rsa/common-mod/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/rsa/common-mod/</guid>
+      <description>A common modulus attack on RSA is a type of cryptographic attack that takes advantage of the properties of RSA encryption when the same modulus is used for multiple encryptions.
+In RSA, encryption is performed by raising the plaintext message to the power of the public exponent (e) and taking the remainder when divided by the modulus (n). Similarly, decryption is performed by raising the ciphertext to the power of the private exponent (d) and taking the remainder when divided by the modulus (n).</description>
+    </item>
+    
   </channel>
 </rss>

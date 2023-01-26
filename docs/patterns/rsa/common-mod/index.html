@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/affine-ciphers/">
+    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/rsa/common-mod/">
     <link rel="apple-touch-icon" sizes="57x57" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-72x72.png">
@@ -30,7 +30,7 @@
     </style>
     <title>
       
-        Affine Cipher | CryptoLearn
+        Common Modulus Attack | CryptoLearn
       
     </title>
     
@@ -254,7 +254,7 @@
                             </li>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/affine-ciphers/" aria-current="page">
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/affine-ciphers/" >
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -349,7 +349,7 @@
                             </li>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/rsa/common-mod/" >
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/rsa/common-mod/" aria-current="page">
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -381,7 +381,7 @@
       <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
         <use xlink:href="#bookmark"></use>
       </svg>
-      Affine Cipher
+      Common Modulus Attack
     </h1>
     
     
@@ -389,88 +389,32 @@
 
 
     
-    <p>An Affine cipher is a type of monoalphabetic substitution cipher, in which each letter in the plaintext is mapped to a unique fixed letter in the ciphertext. This mapping is based on a mathematical function, called the Affine function, that takes two inputs: the letter of the plaintext and two encryption keys, &ldquo;a&rdquo; and &ldquo;b&rdquo;.</p>
-<h4 id="the-encryption-function-is-defined-as">The encryption function is defined as:</h4>
-<table>
-<thead>
-<tr>
-<th>C = (a*P + b) mod 26</th>
-</tr>
-</thead>
-</table>
-<ul>
-<li>Where:
-<ul>
-<li>C = the ciphertext letter (the encrypted letter)</li>
-<li>P = the plaintext letter (the original letter)</li>
-<li>a, b = the encryption keys</li>
-<li>mod 26 = the modulo operation that brings the result of the multiplication and addition within the range of 0 to 25, corresponding to the 26 letters of the alphabet.</li>
-</ul>
-</li>
-</ul>
-<p>To decrypt the ciphertext, the function uses the inverse of the encryption key &lsquo;a&rsquo; and the encryption key &lsquo;b&rsquo; to obtain the plaintext.</p>
-<h4 id="the-decryption-function-is-defined-as">The decryption function is defined as:</h4>
-<table>
-<thead>
-<tr>
-<th>P = (a^-1 * (C - b)) mod 26</th>
-</tr>
-</thead>
-</table>
-<ul>
-<li>Where:
-<ul>
-<li>P = the plaintext letter (the original letter)</li>
-<li>C = the ciphertext letter (the encrypted letter)</li>
-<li>a^-1 = the modular inverse of a (a^-1 * a = 1 mod 26)</li>
-<li>b = the encryption key</li>
-<li>mod 26 = the modulo operation that brings the result of the multiplication and subtraction within the range of 0 to 25, corresponding to the 26 letters of the alphabet.</li>
-</ul>
-</li>
-</ul>
-<p>The encryption and decryption keys &ldquo;a&rdquo; and &ldquo;b&rdquo; must be chosen such that &ldquo;a&rdquo; is relatively prime to 26 (i.e. it has no factors in common with 26) and that the modular inverse of &ldquo;a&rdquo; exists.</p>
-<h3 id="code">Code</h3>
+    <p>A common modulus attack on RSA is a type of cryptographic attack that takes advantage of the properties of RSA encryption when the same modulus is used for multiple encryptions.</p>
+<p>In RSA, encryption is performed by raising the plaintext message to the power of the public exponent (e) and taking the remainder when divided by the modulus (n). Similarly, decryption is performed by raising the ciphertext to the power of the private exponent (d) and taking the remainder when divided by the modulus (n).</p>
+<p>In a common modulus attack, an attacker intercepts multiple ciphertexts that have been encrypted using the same modulus (n), but with different public exponents (e1, e2, &hellip;, en). The attacker can then use mathematical techniques to recover the plaintext message, even if the private exponent (d) is not known.</p>
+<p>One way to perform a common modulus attack is to use the Chinese Remainder Theorem (CRT) to combine the equations of multiple ciphertexts, allowing the attacker to solve for the plaintext. Another way is to use the Euclidean algorithm to calculate the greatest common divisor of the multiple public exponents (e1, e2, &hellip;, en) and the modulus (n) to obtain the private exponent (d) and then use it to decrypt the ciphertexts.</p>
 
 
 
 
 <div class="code-annotated "><code>
-def affine_cipher_encryption(plaintext, a, b):
-    # create an empty list to store the ciphertext
-    ciphertext = []
-    for letter in plaintext:
-        # only encrypt letters, not spaces or other characters
-        if letter.isalpha():
-            # encrypt the letter using the Affine function
-            encrypted_letter = chr(((a * (ord(letter) - ord(&#39;A&#39;))) + b) % 26 + ord(&#39;A&#39;))
-            ciphertext.append(encrypted_letter)
-        else:
-            ciphertext.append(letter)
-    return &#39;&#39;.join(ciphertext)
+from sage.all import xgcd
 
-def affine_cipher_decryption(ciphertext, a, b):
-    # calculate the modular inverse of a
-    a_inv = inverse_mod(a, 26)
-    # create an empty list to store the plaintext
-    plaintext = []
-    for letter in ciphertext:
-        # only decrypt letters, not spaces or other characters
-        if letter.isalpha():
-            # decrypt the letter using the inverse Affine function
-            decrypted_letter = chr((a_inv * ((ord(letter) - ord(&#39;A&#39;)) - b)) % 26 + ord(&#39;A&#39;))
-            plaintext.append(decrypted_letter)
-        else:
-            plaintext.append(letter)
-    return &#39;&#39;.join(plaintext)
 
-# example usage
-plaintext = &#34;HELLO WORLD&#34;
-a = 5
-b = 8
-ciphertext = affine_cipher_encryption(plaintext, a, b)
-print(&#34;Ciphertext:&#34;, ciphertext)
-decrypted_text = affine_cipher_decryption(ciphertext, a, b)
-print(&#34;Decrypted text:&#34;, decrypted_text)
+def attack(n, e1, c1, e2, c2):
+    &#34;&#34;&#34;
+    Recovers the plaintext from two ciphertexts, encrypted using the same modulus and different public exponents.
+    :param n: the common modulus
+    :param e1: the first public exponent
+    :param c1: the ciphertext of the first encryption
+    :param e2: the second public exponent
+    :param c2: the ciphertext of the second encryption
+    :return: the plaintext
+    &#34;&#34;&#34;
+    _, u, v = xgcd(e1, e2)
+    p1 = pow(c1, u, n) if u &gt; 0 else pow(pow(c1, -1, n), -u, n)
+    p2 = pow(c2, v, n) if v &gt; 0 else pow(pow(c2, -1, n), -v, n)
+    return int(p1 * p2) % n
 </code></div>
 
 
