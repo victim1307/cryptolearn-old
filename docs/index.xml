@@ -108,6 +108,16 @@ To encrypt a message, the first step is to reverse the alphabet. This can be don
     </item>
     
     <item>
+      <title>Wiener Attack</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/rsa/wiener-attack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/rsa/wiener-attack/</guid>
+      <description>The Wiener attack is a method for attacking RSA encryption when the private exponent (d) is small relative to the modulus (n). This method is named after mathematician David Wiener, who first described it in a 1990 paper.
+The Wiener attack takes advantage of the fact that the private exponent (d) is typically much smaller than the modulus (n) in RSA encryption. If the private exponent (d) is small enough, it is possible to calculate the private key using the relationship between the private exponent (d) and the public exponent (e) in RSA.</description>
+    </item>
+    
+    <item>
       <title>Playfair Cipher</title>
       <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/playfair-cipher/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
