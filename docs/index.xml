@@ -118,6 +118,15 @@ The Wiener attack takes advantage of the fact that the private exponent (d) is t
     </item>
     
     <item>
+      <title>Factorisation</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/rsa/factorisation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/rsa/factorisation/</guid>
+      <description>Fermat&amp;rsquo;s Factorisation Method Fermat&amp;rsquo;s factorization is an algorithm for factoring integers that is based on Fermat&amp;rsquo;s Little Theorem. The theorem states that if p is a prime number, then for any integer a, the number a^p - a is an integer multiple of p. The algorithm for factoring an integer N is to find two integers a and b such that a^2 - Nb^2 = 1. If such integers are found, then N is the product of the two factors a+b and a-b.</description>
+    </item>
+    
+    <item>
       <title>Playfair Cipher</title>
       <link>https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/playfair-cipher/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

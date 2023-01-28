@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/">
+    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/rsa/factorisation/">
     <link rel="apple-touch-icon" sizes="57x57" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-72x72.png">
@@ -30,7 +30,7 @@
     </style>
     <title>
       
-        Patterns | CryptoLearn
+        Factorisation | CryptoLearn
       
     </title>
     
@@ -367,7 +367,7 @@
                             </li>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/rsa/factorisation/" >
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/rsa/factorisation/" aria-current="page">
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -396,83 +396,55 @@
           
   <main id="main">
     <h1>
-      Patterns
+      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+        <use xlink:href="#bookmark"></use>
+      </svg>
+      Factorisation
     </h1>
-    <ul class="patterns-list">
+    
+    
       
-          <li>
-  <h2>
-    <a href="https://victim1307.github.io/cryptolearn/patterns/where_to_begin/">
-      <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use xlink:href="#bookmark"></use>
-      </svg>
-      1. Where to begin
-    </a>
-  </h2>
-</li>
 
-      
-          <li>
-  <h2>
-    <a href="https://victim1307.github.io/cryptolearn/patterns/basics/">
-      <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use xlink:href="#bookmark"></use>
-      </svg>
-      2. Basic Concepts
-    </a>
-  </h2>
-</li>
 
-      
-          <li>
-  <h2>
-    <a href="https://victim1307.github.io/cryptolearn/patterns/classic_cryptography/">
-      <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use xlink:href="#bookmark"></use>
-      </svg>
-      3. Classic Cryptography
-    </a>
-  </h2>
-</li>
+    
+    <h3 id="fermats-factorisation-method">Fermat&rsquo;s Factorisation Method</h3>
+<p>Fermat&rsquo;s factorization is an algorithm for factoring integers that is based on Fermat&rsquo;s Little Theorem. The theorem states that if p is a prime number, then for any integer a, the number a^p - a is an integer multiple of p. The algorithm for factoring an integer N is to find two integers a and b such that a^2 - Nb^2 = 1. If such integers are found, then N is the product of the two factors a+b and a-b. The algorithm is based on the idea that if N is composite, then it is possible to find such integers a and b by trying different values of a and using the equation to calculate b. However, this method is not always efficient and has been largely superseded by more efficient algorithms such as the General Number Field Sieve.</p>
 
-      
-          <li>
-  <h2>
-    <a href="https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/">
-      <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use xlink:href="#bookmark"></use>
-      </svg>
-      4. Stream &amp; Block Ciphers
-    </a>
-  </h2>
-</li>
 
-      
-          <li>
-  <h2>
-    <a href="https://victim1307.github.io/cryptolearn/patterns/rsa/">
-      <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use xlink:href="#bookmark"></use>
-      </svg>
-      5. RSA
-    </a>
-  </h2>
-</li>
 
-      
-          <li>
-  <h2>
-    <a href="https://victim1307.github.io/cryptolearn/patterns/ecc/">
-      <svg class="bookmark" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
-        <use xlink:href="#bookmark"></use>
-      </svg>
-      6. Elliptic Curve Cryptography
-    </a>
-  </h2>
-</li>
 
-      
-    </ul>
+<div class="code-annotated "><code>
+from math import isqrt
+
+def is_square(x):
+    &#34;&#34;&#34;
+    Returns the square root of x if x is a perfect square, or None otherwise.
+    :param x: x
+    :return: the square root of x or None
+    &#34;&#34;&#34;
+    y = isqrt(x)
+    return y if y ** 2 == x else None
+
+def factorize(N):
+    &#34;&#34;&#34;
+    Recovers the prime factors from a modulus using Fermat&#39;s factorization method.
+    :param N: the modulus
+    :return: a tuple containing the prime factors, or None if the factors were not found
+    &#34;&#34;&#34;
+    a = isqrt(N)
+    b = a * a - N
+    while b &lt; 0 or not is_square(b):
+        a += 1
+        b = a * a - N
+
+    p = a - isqrt(b)
+    q = N // p
+    if p * q == N:
+        return p, q
+
+</code></div>
+
+
   </main>
 
           <footer role="contentinfo">
