@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/rsa/introduction/">
+    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/basics/test2/">
     <link rel="apple-touch-icon" sizes="57x57" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-72x72.png">
@@ -30,7 +30,7 @@
     </style>
     <title>
       
-        Introduction | CryptoLearn
+        hello world 2 | CryptoLearn
       
     </title>
     
@@ -238,7 +238,7 @@
                             </li>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/basics/test2/" >
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/basics/test2/" aria-current="page">
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -297,7 +297,7 @@
                         <ul>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/introduction/" aria-current="page">
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/introduction/" >
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -349,7 +349,7 @@
                         <ul>
                           
                             <li class="pattern">
-                              <a href="https://victim1307.github.io/cryptolearn/patterns/rsa/introduction/" aria-current="page">
+                              <a href="https://victim1307.github.io/cryptolearn/patterns/rsa/introduction/" >
                                 <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                                   <use xlink:href="#bookmark"></use>
                                 </svg>
@@ -417,7 +417,7 @@
       <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
         <use xlink:href="#bookmark"></use>
       </svg>
-      Introduction
+      hello world 2
     </h1>
     
     
@@ -425,56 +425,7 @@
 
 
     
-    <p>RSA is a widely-used public-key encryption system that is based on the mathematical properties of large prime numbers. It was one of the first practical public-key cryptosystems and is widely used for secure data transmission.</p>
-<p>The RSA encryption process consists of two parts: key generation and encryption/decryption.</p>
-<p>Key Generation:</p>
-<ul>
-<li>Select two large prime numbers, p and q.</li>
-<li>Compute n = p*q. n is used as the modulus for both the public and private keys.</li>
-<li>Compute the totient of n, φ(n) = (p-1)*(q-1).</li>
-<li>Select a public exponent e, such that 1 &lt; e &lt; φ(n) and e is coprime to φ(n).</li>
-<li>Compute the private exponent d, such that d*e = 1 mod φ(n).</li>
-</ul>
-<p>Encryption/Decryption:</p>
-<ul>
-<li>For encryption, the plaintext message is represented as a number m. The ciphertext c is computed as c = m^e mod n.</li>
-<li>For decryption, the ciphertext c is input and the plaintext message m is computed as m = c^d mod n.</li>
-</ul>
-
-
-
-
-<div class="code-annotated "><code>
-from math import gcd
-from random import randrange
-
-def generate_keypair(p, q):
-    if not (is_prime(p) and is_prime(q)):
-        raise ValueError(&#39;Both numbers must be prime.&#39;)
-    elif p == q:
-        raise ValueError(&#39;p and q cannot be equal&#39;)
-    n = p * q
-    phi = (p-1) * (q-1)
-    e = randrange(1, phi)
-    g = gcd(e, phi)
-    while g != 1:
-        e = randrange(1, phi)
-        g = gcd(e, phi)
-    d = multiplicative_inverse(e, phi)
-    return ((e, n), (d, n))
-
-def encrypt(pk, plaintext):
-    key, n = pk
-    cipher = [(ord(char) ** key) % n for char in plaintext]
-    return cipher
-
-def decrypt(pk, ciphertext):
-    key, n = pk
-    plain = [chr((char ** key) % n) for char in ciphertext]
-    return &#39;&#39;.join(plain)
-</code></div>
-
-
+    
   </main>
 
           <footer role="contentinfo">

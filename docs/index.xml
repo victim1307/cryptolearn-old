@@ -99,6 +99,15 @@ To encrypt a message, the first step is to reverse the alphabet. This can be don
     </item>
     
     <item>
+      <title>hello world 2</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/basics/test2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/basics/test2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Repeated Key XOR</title>
       <link>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/repeated-key-xor/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
