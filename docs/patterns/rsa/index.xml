@@ -29,6 +29,15 @@ In RSA, encryption is performed by raising the plaintext message to the power of
     </item>
     
     <item>
+      <title>Hastad&#39;s Broadcast Attack</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/rsa/hastads_broadcast/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/rsa/hastads_broadcast/</guid>
+      <description>Hastad&amp;rsquo;s Broadcast Attack on unpadded messages Consider a scenario where Alice transmits an unpadded message (M) to k people labeled P1,P2,&amp;hellip;,Pk. Each recipient has an identical small public key exponent (e) and distinct moduli (N) for every ith individual (Ni,e). Here the vulnerability arises when the number of recipients k is greater than or equal to e (k&amp;gt;=e). Once this happens the security of message M is compromised and it can be recovered through application of Chinese Remainder Theorem.</description>
+    </item>
+    
+    <item>
       <title>Wiener Attack</title>
       <link>https://victim1307.github.io/cryptolearn/patterns/rsa/wiener-attack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

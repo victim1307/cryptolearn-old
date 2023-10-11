@@ -1,6 +1,6 @@
 +++
 title = "Hastad's Broadcast Attack"
-weight = 2
+weight = 6
 +++
 
 ## Hastad's Broadcast Attack on unpadded messages

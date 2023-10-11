@@ -377,6 +377,15 @@
                   </li>
                 
                   <li class="pattern">
+                    <a href="#hastads-broadcast-attack" >
+                      <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                        <use xlink:href="#bookmark"></use>
+                      </svg>
+                      <span class="text">Hastad&#39;s Broadcast Attack</span>
+                    </a>
+                  </li>
+                
+                  <li class="pattern">
                     <a href="#wiener-attack" >
                       <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
                         <use xlink:href="#bookmark"></use>
@@ -1231,6 +1240,68 @@ def attack(n, e1, c1, e2, c2):
     p1 = pow(c1, u, n) if u &gt; 0 else pow(pow(c1, -1, n), -u, n)
     p2 = pow(c2, v, n) if v &gt; 0 else pow(pow(c2, -1, n), -v, n)
     return int(p1 * p2) % n
+</code></div>
+
+
+          </div>
+        
+          <div class="pattern-section">
+            <h1 id="hastads-broadcast-attack" tabindex="-1">
+              <svg class="bookmark-icon" aria-hidden="true" viewBox="0 0 40 50" focusable="false">
+                <use xlink:href="#bookmark"></use>
+              </svg>
+              Hastad&#39;s Broadcast Attack
+            </h1>
+            <h2 id="hastads-broadcast-attack-on-unpadded-messages">Hastad&rsquo;s Broadcast Attack on unpadded messages</h2>
+<p>Consider a scenario where Alice transmits an unpadded message (M) to k people labeled P1,P2,&hellip;,Pk. Each recipient has an identical small public key exponent (e) and distinct moduli (N) for every ith individual (Ni,e). Here the vulnerability arises when the number of recipients k is greater than or equal to e (k&gt;=e). Once this happens the security of message M is compromised and it can be recovered through application of Chinese Remainder Theorem.</p>
+<p>To illustrate this attack, let&rsquo;s consider a example where Alice sends a message M to 3 three different people using the same public key exponent e = 3. Let the ciphertext received by ith receiver be Ci where Ci = M3 mod Ni. We have to assume that gcd(Ni, Nj) == 1 where i != j.</p>
+<p>Now we can write :
+$$
+M^3 = C_1 \mod N_1 \
+M^3 = C_2 \mod N_2 \
+M^3 = C_3 \mod N_3 \
+$$
+Thus we can get the following by solving using Chinese Remainder Theorem:
+$$
+M^3 = \sum_{i=1}^{3} C_i b_i b'_i \pmod{N}
+$$
+where <em>bi = N/Ni, bi' = bi-1 mod Ni and N = N1 N2 N3</em>. Since we know that M &lt; Ni (If our message M is larger than the modulus N, then we won&rsquo;t get the exact message when we decrypt the ciphertext, we will get an equivalent message instead, which is not favourable).
+Therefore we can write M &lt; N1N2N3. We can easily calculate M now by directly taking the cube root of M3 to get M.</p>
+<p>Hastad also showed that applying linear padding to the message M prior to encryption does not protect from this attack.</p>
+
+
+
+
+<div class="code-annotated "><code>
+import os
+import sys
+from math import gcd
+
+path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(os.path.abspath(__file__)))))
+if sys.path[1] != path:
+    sys.path.insert(1, path)
+
+from attacks.rsa import low_exponent
+from shared.crt import fast_crt
+
+
+def attack(N, e, c):
+    &#34;&#34;&#34;
+    Recovers the plaintext from e ciphertexts, encrypted using different moduli and the same public exponent.
+    :param N: the moduli
+    :param e: the public exponent
+    :param c: the ciphertexts
+    :return: the plaintext
+    &#34;&#34;&#34;
+    assert e == len(N) == len(c), &#34;The amount of ciphertexts should be equal to e.&#34;
+
+    for i in range(len(N)):
+        for j in range(len(N)):
+            if i != j and gcd(N[i], N[j]) != 1:
+                raise ValueError(f&#34;Modulus {i} and {j} share factors, Hastad&#39;s attack is impossible.&#34;)
+
+    c, _ = fast_crt(c, N)
+    return low_exponent.attack(e, c)
 </code></div>
 
 
