@@ -18,6 +18,17 @@
     
     <item>
       <title>Introduction</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/inrtoduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/inrtoduction/</guid>
+      <description>The Diffie-Hellman key exchange is the method of safely developing and exchanging keys over an insecure channel. It allows two parties to establish a shared secret key over an unsecured communication channel. Unlike RSA, which is primarily used for encryption, Diffie-Hellman is focused on secure key exchange.
+Working:
+ Let&amp;rsquo;s say, two parties, Alice and Bob agree on two large prime numbers, p and g, and a public key exchange algorithm.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
       <link>https://victim1307.github.io/cryptolearn/patterns/rsa/introduction/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -77,6 +88,15 @@ In RSA, encryption is performed by raising the plaintext message to the power of
       <guid>https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/single-byte-xor/</guid>
       <description>Single-Byte XOR, also known as Single Character XOR, is a simple form of XOR encryption that encrypts each byte of the plaintext message using a single byte key. The encryption process is done by applying the XOR operation between the plaintext byte and the key byte.
 The decryption process is the same as the encryption process, it&amp;rsquo;s just the reverse of the encryption process, the decryption key is the same key used for encryption.</description>
+    </item>
+    
+    <item>
+      <title>Small Subgroup Confinement Attack</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/small-subgroup-confinement-attack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/small-subgroup-confinement-attack/</guid>
+      <description></description>
     </item>
     
     <item>

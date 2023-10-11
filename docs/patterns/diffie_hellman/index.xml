@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>6. Diffie Hellman on CryptoLearn</title>
+    <link>https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/</link>
+    <description>Recent content in 6. Diffie Hellman on CryptoLearn</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/inrtoduction/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/inrtoduction/</guid>
+      <description>The Diffie-Hellman key exchange is the method of safely developing and exchanging keys over an insecure channel. It allows two parties to establish a shared secret key over an unsecured communication channel. Unlike RSA, which is primarily used for encryption, Diffie-Hellman is focused on secure key exchange.
+Working:
+ Let&amp;rsquo;s say, two parties, Alice and Bob agree on two large prime numbers, p and g, and a public key exchange algorithm.</description>
+    </item>
+    
+    <item>
+      <title>Small Subgroup Confinement Attack</title>
+      <link>https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/small-subgroup-confinement-attack/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/small-subgroup-confinement-attack/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
