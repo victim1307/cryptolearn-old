@@ -15,7 +15,7 @@
       <description>RSA is a widely-used public-key encryption system that is based on the mathematical properties of large prime numbers. It was one of the first practical public-key cryptosystems and is widely used for secure data transmission.
 The RSA encryption process consists of two parts: key generation and encryption/decryption.
 Key Generation:
-Select two large prime numbers, p and q. Compute n = p*q. n is used as the modulus for both the public and private keys.</description>
+ Select two large prime numbers, p and q. Compute n = p*q. n is used as the modulus for both the public and private keys.</description>
     </item>
     
     <item>
