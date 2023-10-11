@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/steam_block_ciphers/introduction/">
+    <link rel="canonical" href="https://victim1307.github.io/cryptolearn/patterns/diffie_hellman/inrtoduction/">
     <link rel="apple-touch-icon" sizes="57x57" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="https://victim1307.github.io/cryptolearn/images/apple-touch-icon-72x72.png">
@@ -459,12 +459,45 @@
 
 
     
-    <p>Stream ciphers and block ciphers are two common types of symmetric encryption algorithms.</p>
-<p>A stream cipher encrypts plaintext one bit or byte at a time, while a block cipher encrypts plaintext in fixed-size blocks, typically 128 or 256 bits at a time.</p>
-<p>Stream ciphers are used in real-time applications where data is transmitted continuously, such as in wireless communications or streaming audio and video. They are efficient in terms of computation and memory usage and can encrypt data quickly and securely. Examples of stream ciphers include A5/1 and RC4.</p>
-<p>Block ciphers, on the other hand, are used to encrypt large amounts of data, such as files or entire disk drives. They are more secure than stream ciphers but require more computation and memory resources. Examples of block ciphers include AES and DES.</p>
-<p>In both cases, the encryption process is performed using a secret key, and the decryption process is performed using the same key. This ensures that only authorized parties can access the encrypted data.</p>
-<p>It&rsquo;s worth noting that both block ciphers and stream ciphers can be used in various modes of operation, like Electronic Codebook (ECB), Cipher Block Chaining (CBC), Cipher Feedback (CFB), Output Feedback (OFB) and Counter (CTR) mode, each one of them has its own security and practical properties.</p>
+    <p>The Diffie-Hellman key exchange is the method of safely developing and exchanging keys over an insecure channel. It allows two parties to establish a shared secret key over an unsecured communication channel. Unlike RSA, which is primarily used for encryption, Diffie-Hellman is focused on secure key exchange.</p>
+<p>Working:</p>
+<ul>
+<li>Let&rsquo;s say, two parties, Alice and Bob agree on two large prime numbers, p and g, and a public key exchange algorithm.</li>
+<li>Alice chooses a secret integer, a, and computes A = g^a mod p. She sends A to Bob.</li>
+<li>Bob chooses a secret integer, b, and computes B = g^b mod p. He sends B to Alice.</li>
+<li>Alice computes s = B^a mod p. Bob computes s = A^b mod p.</li>
+<li>Alice and Bob now both have the shared secret key s, which they can use to establish a secure communication channel.</li>
+</ul>
+<p>The security of the Diffie-Hellman key exchange relies on the fact that it is computationally infeasible for an attacker to determine the shared secret keys from the public values of p, g, A, and B. This allows Alice and Bob to exchange the key securely, even over an insecure channel.</p>
+<p>The most interesting part of the Diffie-Hellman key exchange is that both parties end up with the same result, without ever needing to send the entirety of the common secret across the communication channel.</p>
+
+
+
+
+<div class="code-annotated "><code>
+
+import random
+
+p = 29              # Shared prime number and base (these should be agreed upon in advance)
+g = 7
+
+alice_private = random.randint(1, p - 1)            # Alice&#39;s private key
+
+bob_private = random.randint(1, p - 1)            # Bob&#39;s private key
+
+alice_public = (g ** alice_private) % p                 # Compute public keys
+bob_public = (g ** bob_private) % p
+
+# Alice and Bob exchanges public keys with each other
+
+alice_shared_secret = (bob_public ** alice_private) % p           # Alice and Bob now compute the shared secret
+bob_shared_secret = (alice_public ** bob_private) % p
+
+# The shared secrets should be the same
+print(&#34;Shared Secret (Alice):&#34;, alice_shared_secret)
+print(&#34;Shared Secret (Bob):&#34;, bob_shared_secret)
+</code></div>
+
 
   </main>
 
